@@ -57,13 +57,13 @@ def connect_mbdb():
     try:
         connect = pg.connect('musicbrainz_db','localhost',-1,None,None,
                              USER,PASSWD)
-    except (TypeError, e):
+    except TypeError, e:
         print 'CONNECT_MBDB: type error, should not happen:',e
         return None
-    except (SyntaxError, e):
+    except SyntaxError, e:
         print 'CONNECT_MBDB: syntax error, should not happen:',e
         return None
-    except (pg.InternalError, e):
+    except pg.InternalError, e:
         print 'CONNECT_MBDB, internal error:', e
         return None
     # check for levenshtein function
